@@ -9,20 +9,51 @@ export default function InteractivePhoto() {
         animate={{ rotate: 360 }}
         transition={{ duration: 40, repeat: Infinity, ease: 'linear' }}
       >
-        <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full text-amber-500">
-          <circle cx="100" cy="100" r="85" stroke="currentColor" strokeWidth="1" strokeDasharray="4 4" />
-          <circle cx="100" cy="100" r="75" stroke="currentColor" strokeWidth="1.5" />
-          <circle cx="100" cy="100" r="65" stroke="currentColor" strokeWidth="0.5" strokeDasharray="1 3" />
+        <svg
+          viewBox="0 0 200 200"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className="w-full h-full text-amber-500"
+        >
+          <circle
+            cx="100"
+            cy="100"
+            r="85"
+            stroke="currentColor"
+            strokeWidth="1"
+            strokeDasharray="4 4"
+          />
+          <circle
+            cx="100"
+            cy="100"
+            r="75"
+            stroke="currentColor"
+            strokeWidth="1.5"
+          />
+          <circle
+            cx="100"
+            cy="100"
+            r="65"
+            stroke="currentColor"
+            strokeWidth="0.5"
+            strokeDasharray="1 3"
+          />
+
           {Array.from({ length: 12 }).map((_, i) => {
             const angle = (i * 30 * Math.PI) / 180;
             const x1 = 100 + Math.cos(angle) * 30;
             const y1 = 100 + Math.sin(angle) * 30;
             const x2 = 100 + Math.cos(angle) * 75;
             const y2 = 100 + Math.sin(angle) * 75;
+
             return (
               <path
                 key={i}
-                d={`M ${x1} ${y1} Q ${100 + Math.cos(angle + 0.15) * 55} ${100 + Math.sin(angle + 0.15) * 55} ${x2} ${y2} Q ${100 + Math.cos(angle - 0.15) * 55} ${100 + Math.sin(angle - 0.15) * 55} ${x1} ${y1}`}
+                d={`M ${x1} ${y1} Q ${
+                  100 + Math.cos(angle + 0.15) * 55
+                } ${100 + Math.sin(angle + 0.15) * 55} ${x2} ${y2} Q ${
+                  100 + Math.cos(angle - 0.15) * 55
+                } ${100 + Math.sin(angle - 0.15) * 55} ${x1} ${y1}`}
                 stroke="currentColor"
                 strokeWidth="1"
               />
@@ -43,10 +74,11 @@ export default function InteractivePhoto() {
 
         <div className="relative w-full h-full overflow-hidden bg-brand-maroon">
           <img
-            src="/images/bharat.png"
+            src={`${import.meta.env.BASE_URL}images/bharat.png`}
             alt="Yemineni Bharath Kumar"
             className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
           />
+
           <div className="absolute inset-0 bg-gradient-to-t from-brand-maroon/80 via-transparent to-black/15" />
           <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/30 to-transparent" />
         </div>
