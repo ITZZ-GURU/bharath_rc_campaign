@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
-import { MessageSquare, Copy, Check, Share2, Send, ExternalLink, HelpCircle } from 'lucide-react';
+import { MessageSquare, Copy, Check, Share2, ExternalLink } from 'lucide-react';
 
 export default function WhatsAppShare() {
   const [copied, setCopied] = useState(false);
-  
+
+  const manifestoUrl = 'https://share.google/SZQsb8m7HPf0YhSIT';
+
   // Custom Campaign message optimized for IITM BS Telugu student groups
   const initialMessage = `👋 Hi there! Please support our friend *Yemineni Bharath Kumar*, who is contesting for the *Regional Coordinator (RC)* position for *Andhra Pradesh & Telangana (Corbett House)*.
 
@@ -17,7 +19,7 @@ export default function WhatsAppShare() {
 🤝 Let's vote for unity, connection, and a stronger Telugu student community!
 
 🗳️ *Cast your vote here:* https://elections.iitmbs.org/vote
-📄 *Read his full manifesto here:* ${window.location.href}
+📄 *Read his full manifesto here:* ${manifestoUrl}
 
 _Please forward this to all IITM BS student groups in AP/TS and Corbett House!_ 🗳️✨`;
 
@@ -49,13 +51,11 @@ _Please forward this to all IITM BS student groups in AP/TS and Corbett House!_ 
       className="py-16 px-4 md:px-8 max-w-4xl mx-auto"
     >
       <div className="bg-[#5c131a] border-2 border-brand-gold rounded p-6 md:p-10 shadow-[12px_12px_0px_rgba(0,0,0,0.45)] relative overflow-hidden backdrop-blur-md">
-        
         {/* Background Decorative Circles */}
         <div className="absolute -top-12 -right-12 w-48 h-48 bg-brand-gold/10 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute -bottom-12 -left-12 w-48 h-48 bg-brand-red/10 rounded-full blur-3xl pointer-events-none" />
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-          
           {/* Column 1: Info */}
           <div className="lg:col-span-5 text-left space-y-4">
             <span className="inline-flex items-center gap-1.5 text-[10px] font-mono text-brand-gold font-bold uppercase tracking-widest bg-brand-gold/10 px-2.5 py-1 rounded border border-brand-gold/30">
@@ -104,7 +104,6 @@ _Please forward this to all IITM BS student groups in AP/TS and Corbett House!_ 
             </div>
 
             <div className="flex flex-col sm:flex-row gap-3">
-              {/* Share button */}
               <button
                 onClick={handleWhatsAppShare}
                 className="flex-1 px-5 py-3.5 bg-brand-emerald hover:bg-brand-emerald/90 text-brand-cream border border-brand-gold/30 font-cinzel font-black uppercase text-xs tracking-wider rounded shadow-md transition-all flex items-center justify-center gap-2 transform hover:-translate-y-0.5"
@@ -114,12 +113,11 @@ _Please forward this to all IITM BS student groups in AP/TS and Corbett House!_ 
                 <ExternalLink size={12} className="opacity-80" />
               </button>
 
-              {/* Copy button */}
               <button
                 onClick={handleCopy}
                 className={`px-5 py-3.5 rounded font-cinzel font-semibold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 border ${
-                  copied 
-                    ? 'bg-brand-gold/20 text-brand-cream border-brand-gold/30' 
+                  copied
+                    ? 'bg-brand-gold/20 text-brand-cream border-brand-gold/30'
                     : 'bg-brand-red hover:bg-brand-red/80 border-brand-gold/30 text-brand-cream'
                 }`}
               >
@@ -136,13 +134,12 @@ _Please forward this to all IITM BS student groups in AP/TS and Corbett House!_ 
                 )}
               </button>
             </div>
+
             <p className="text-[10px] text-brand-cream/50 text-center font-mono">
               * Launches WhatsApp with pre-composed text. No data is stored or collected.
             </p>
           </div>
-
         </div>
-
       </div>
     </motion.section>
   );
